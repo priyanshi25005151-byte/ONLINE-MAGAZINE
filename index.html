@@ -1,0 +1,204 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pulse — Online Magazine</title>
+  <style>
+    /* Basic, intentionally simple CSS: only uses padding, margin, color, widths, display and font-family */
+    :root{
+      --accent: #2b6cb0; /* blue */
+      --muted: #6b7280;
+      --bg: #ffffff;
+      --card: #f8fafc;
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      margin:0;
+      padding:0;
+      color:#111827;
+      background:var(--bg);
+      line-height:1.4;
+    }
+
+    /* Layout */
+    header{
+      padding:20px 24px;
+      border-bottom:1px solid #e6edf3;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{margin:0;font-size:20px;color:var(--accent)}
+    nav a{margin-left:12px;text-decoration:none;color:var(--muted);font-size:14px}
+
+    .container{max-width:1100px;margin:28px auto;padding:0 16px}
+
+    /* Hero / featured */
+    .hero{display:flex;gap:20px;margin-bottom:24px}
+    .hero .featured{
+      flex:2;padding:20px;background:var(--card);border-radius:8px;margin:0
+    }
+    .hero .featured h2{margin:0 0 8px 0}
+    .hero .featured p{margin:0;color:var(--muted)}
+    .hero .side{
+      flex:1;padding:20px;background:#fff;border-radius:8px;border:1px solid #eef4f9;
+    }
+
+    /* Sections */
+    .section{margin-bottom:20px}
+    .section h3{margin:8px 0}
+    .cards{display:flex;gap:12px;flex-wrap:wrap}
+    .card{flex:1 1 240px;padding:12px;background:var(--card);border-radius:6px;margin:4px}
+    .card h4{margin:6px 0}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Sidebar elements */
+    .subscribe{padding:12px;background:#fff;border-radius:6px;border:1px solid #eef4f9}
+    .subscribe input[type="email"]{width:100%;padding:8px;margin-top:8px;margin-bottom:8px;border:1px solid #d6e4f3}
+    .subscribe button{padding:8px 12px;background:var(--accent);color:#fff;border:0;border-radius:4px;cursor:pointer}
+
+    /* Footer */
+    footer{padding:18px 24px;border-top:1px solid #e6edf3;margin-top:28px;text-align:center;color:var(--muted)}
+
+    /* Responsive tweaks */
+    @media (max-width:800px){
+      .hero{flex-direction:column}
+      .cards{flex-direction:column}
+      .card{flex:1 1 auto}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <rect width="24" height="24" rx="4" fill="#2b6cb0"></rect>
+        <text x="6" y="17" font-size="12" fill="#fff" font-family="sans-serif">P</text>
+      </svg>
+      <h1>Pulse</h1>
+      <div style="color:var(--muted);font-size:14px;margin-left:6px">Online Magazine</div>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#world">World</a>
+      <a href="#tech">Tech</a>
+      <a href="#culture">Culture</a>
+      <a href="#sports">Sports</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <article class="featured">
+        <h2>Featured: The Rise of Small Cities</h2>
+        <p class="meta" style="color:var(--muted);font-size:13px;margin-top:6px">By A. Reporter • Nov 7, 2025</p>
+        <p style="margin-top:12px">
+          Small cities are attracting new kinds of businesses, remote workers and creative communities. In this long-form feature we
+          explore the causes, profiles and what this shift means for the future of urban life.
+        </p>
+        <p style="margin-top:12px"><a href="#" style="text-decoration:none;color:var(--accent)">Read full story →</a></p>
+      </article>
+
+      <aside class="side">
+        <div style="margin-bottom:12px">
+          <h4 style="margin:0">Top reads</h4>
+          <ul style="padding-left:16px;color:var(--muted);margin-top:8px">
+            <li><a href="#" style="color:inherit;text-decoration:none">Inside the open-source surge</a></li>
+            <li><a href="#" style="color:inherit;text-decoration:none">How chefs reinvent local menus</a></li>
+            <li><a href="#" style="color:inherit;text-decoration:none">Weekend guide: mountain towns</a></li>
+          </ul>
+        </div>
+
+        <div class="subscribe">
+          <strong>Subscribe</strong>
+          <p style="color:var(--muted);font-size:13px;margin:6px 0">Weekly highlights—delivered to your inbox.</p>
+          <form onsubmit="event.preventDefault();alert('Thanks for subscribing (demo)!')">
+            <label for="email" style="font-size:13px;color:var(--muted)">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Topic sections -->
+    <section id="world" class="section">
+      <h3>World</h3>
+      <div class="cards">
+        <article class="card">
+          <h4>New trade routes reshape regions</h4>
+          <p>Governments and companies are investing in new corridors for goods and data. What it means for local economies.</p>
+        </article>
+        <article class="card">
+          <h4>Conservation wins in unexpected places</h4>
+          <p>Community-led projects show measurable improvements in biodiversity and livelihoods.</p>
+        </article>
+        <article class="card">
+          <h4>Profile: A mayor with a plan</h4>
+          <p>Behind the local leader who turned a budget crisis into an urban renewal success.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tech" class="section">
+      <h3>Tech</h3>
+      <div class="cards">
+        <article class="card">
+          <h4>Startups building for low-power devices</h4>
+          <p>Design approaches that make tech work where electricity is scarce.</p>
+        </article>
+        <article class="card">
+          <h4>Interview: Open data advocate</h4>
+          <p>How open data is changing local journalism and civic tech.</p>
+        </article>
+        <article class="card">
+          <h4>Guide: Protecting your privacy</h4>
+          <p>Simple steps you can take to keep your online life safer.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="culture" class="section">
+      <h3>Culture</h3>
+      <div class="cards">
+        <article class="card">
+          <h4>Reviving craft traditions</h4>
+          <p>Young makers blend old techniques with modern design.</p>
+        </article>
+        <article class="card">
+          <h4>Film festival highlights</h4>
+          <p>A roundup of bold new voices and the films you shouldn't miss.</p>
+        </article>
+        <article class="card">
+          <h4>Music: The new acoustic wave</h4>
+          <p>Why more artists are returning to stripped-down arrangements.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="sports" class="section">
+      <h3>Sports</h3>
+      <div class="cards">
+        <article class="card">
+          <h4>Grassroots leagues on the rise</h4>
+          <p>Community sports are creating opportunities and stronger local ties.</p>
+        </article>
+        <article class="card">
+          <h4>Training: Balancing work and play</h4>
+          <p>How semi-pro athletes manage full-time jobs and serious training schedules.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer area inside main container -->
+    <footer>
+      <p style="margin:0">© 2025 Pulse Magazine • Built with simple HTML & CSS • <a href="#" style="color:var(--accent);text-decoration:none">Privacy</a> • <a href="#" style="color:var(--accent);text-decoration:none">Contact</a></p>
+    </footer>
+  </main>
+
+</body>
+</html>
